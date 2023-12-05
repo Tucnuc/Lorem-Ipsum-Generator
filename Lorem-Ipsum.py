@@ -2,12 +2,12 @@ import random
 import time
 import textwrap
 
-nevim = ["magic"]
+nevim = []
 
-delka_odstavce = 50
-max_delka = 10
-odstavce = 3
-delka_radku = 90
+delka_odstavce = 0
+max_delka = 0
+odstavce = 0
+delka_radku = 0
 vsechny_odstavce = []
 
 ostrava = ("rožnout","chachar","pyčo","grcat","bo","bulat","hrča","najebat","kobzole","kaj","včil","chuj","cyp","bazaly","roba","šufan","kajsyk","pazury","štrample","štrample","kura","robit","dupa","mňamka","šupina","pivoň","fofr")
@@ -15,14 +15,14 @@ brno = ("pindy","čapy","budka","bagrovat","šalina","špilas","bazmek","krýgl"
 hana = ("cecan","ošmóranec","ohonit","šošeň","otěkat","šak","šiblé","šklibit","šléšky","šmédit","šmodrcha","špičák","šršňák","orál","čapa","řbet","čuňa","bék","brňák","brikule","céch","loskanec","máčka","masenko","mrčet","nigde")
 nareci = ostrava
 
-# zapnuti = input("Zmáčkněte Enter pro zapnutí: ")
-# if zapnuti.strip() == "":
-#     print("Vítejte. \033[3m*windows zapnutí sound effect*\033[0m")
-#     print("")
-#     time.sleep(2)
-#     nevim.append("check")
-# elif zapnuti:
-#     print("Na shledanou. \033[3m*windows vypnutí sound effect*\033[0m")
+zapnuti = input("Zmáčkněte Enter pro zapnutí: ")
+if zapnuti.strip() == "":
+    print("Vítejte. \033[3m*windows zapnutí sound effect*\033[0m")
+    print("")
+    time.sleep(2)
+    nevim.append("check")
+elif zapnuti:
+    print("Na shledanou. \033[3m*windows vypnutí sound effect*\033[0m")
 
 while True:
     if "check" in nevim:
@@ -49,7 +49,7 @@ while True:
         print("Zpracovávám...")
         print("")
         time.sleep(1)
-        pocet_slov = int(input("Teď zadejte kolik slov se bude nacházet v jednom odstavci: "))
+        pocet_slov = int(input("Teď zadejte, kolik slov se bude nacházet v jednom odstavci: "))
         delka_odstavce += pocet_slov
         print("Zpracovávám...")
         print("")
@@ -77,30 +77,24 @@ while True:
             vybrane_slova = [slovo for slovo in nareci if len(slovo) <= max_delka]
             final_slova = []
             for _ in range(delka_odstavce):
-                cislo = random.randint(0,12)
-                cislo2 = random.randint(0,20)
+                cislo = random.randint(0,20)
+                cislo2 = random.randint(0,12)
                 losovane_slova = random.choice(vybrane_slova)
                 if cislo == 3 and cislo2 != 4:
                     losovane_slova += ","
-                    final_slova.append(losovane_slova)
                 if cislo2 == 4 and cislo != 3:
                     losovane_slova += "."
-                    final_slova.append(losovane_slova)
-                else:
-                    final_slova.append(losovane_slova)
+                final_slova.append(losovane_slova)
+
             final_text = textwrap.fill(' '.join(final_slova), width=delka_radku)
             final_text = final_text.capitalize()
             final_text += "."
             vsechny_odstavce.append(final_text)
             alfa_text = "\n\n".join(vsechny_odstavce)
 
-        
         beta_text = alfa_text
         beta_text += "\n\n\033[3mVytvořeno \033[1mLorem Ipsum Generátorem 3000 DeLuxe++\033[0m\033[0m"
         print(beta_text)
         with open('vystup.txt', 'w') as f:
             f.write(alfa_text)
         break
-
-
-# novy_text += "\n"*2
