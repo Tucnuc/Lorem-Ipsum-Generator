@@ -115,13 +115,13 @@ while True:
         print("")
         time.sleep(1)
         print(beta_text)
-        with open('vystup.txt', 'w') as f:
-            f.write(gamma_text)
-
+        
         time.sleep(2)
         print("")
-        open = int(input("Chcete otevřít textový dokument s vygenerovaným textem? [1 - ano, 2 - ne]: "))
-        if open == 1:
+        open1 = int(input("Chcete vytvořit a otevřít textový dokument s vygenerovaným textem? [1 - ano, 2 - ne]: "))
+        if open1 == 1:
+            with open('vystup.txt', 'w') as f:
+                f.write(gamma_text)
             time.sleep(0.2)
             os.system("notepad.exe vystup.txt")
             break
