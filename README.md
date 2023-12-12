@@ -1,6 +1,6 @@
 # Lorem-Ipsum-Generator
 
-## V čem je tento lorem ipsum generátor jiných od ostatních?
+## V čem je tento lorem ipsum generátor jiný od ostatních?
 Můžete si totiž zvolit jaké chcete **nářečí** ve vygenerovaném textu. Je na výběr Ostravské, Brněnské a Hanácké. Dodá to vašemu vygenerovanému textu víc _živější_ pocit. <br/><br/>
 Kromě toho se dá generace nastavit například podle:
 
